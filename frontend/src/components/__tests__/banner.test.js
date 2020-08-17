@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Banner from './components/banner.js';
+import Banner from '../banner.js';
 
 test('renders the title for the banner', () => {
   const { getByText } = render(<Banner />);
