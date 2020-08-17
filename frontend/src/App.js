@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import Banner from './components/banner';
+import Leaderboard from './components/leaderboard';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Banner />
+        <Leaderboard />
       </header>
     </div>
   );
