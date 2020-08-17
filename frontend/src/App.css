@@ -1,5 +1,4 @@
 .App {
-  text-align: center;
 }
 
 .App-header {
@@ -18,30 +17,26 @@
 /* Banner styling */
 
 .Banner {
-  position: static;
-  width: 678px;
+  display: grid;
+
+  width: 70%;
   height: 140px;
   left: 0px;
   top: 0px;
   background-color: #FFF1C7;
   flex: none;
   order: 0;
-  align-self: center;
+  justify-self: center;
   margin: 0px 0px;
 }
 
 .Banner h3 {
-  position: absolute;
-  height: 30px;
-  left: 24px;
-  right: 109px;
-  top: 28px;
-
-
+  position: relative;
+  left: 2%;
   font-family: Haboro Soft;
   font-style: normal;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 30px;
   line-height: 30px;
 
   color: #E47A00;
@@ -51,9 +46,25 @@
   position: relative;
   width: 200px;
   height: 40px;
-  left: 0px;
-  bottom: 29px;
-
-
+  bottom: 30%;
   background: #FFB561;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Reset h4 {
+  font-size: 18px;
+  margin: 0;
+}
+
+/* Leaderboard styling */
+
+.Leaderboard {
+  position: absolute;
+  display: grid;
+  align-self: center;
+  min-width: 100vw;
+  min-height: 100vh;
 }
