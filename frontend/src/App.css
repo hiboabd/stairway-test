@@ -31,22 +31,29 @@
 }
 
 .Banner h3 {
-  /* Compete with your friends this week! */
-
   position: absolute;
   height: 30px;
   left: 24px;
   right: 109px;
   top: 28px;
 
-  /* Heading 3 (Bold) */
+
   font-family: Haboro Soft;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
   line-height: 30px;
-  /* identical to box height */
 
-  /* Peach / 900 */
   color: #E47A00;
+}
+
+.Reset {
+  position: relative;
+  width: 200px;
+  height: 40px;
+  left: 0px;
+  bottom: 29px;
+
+
+  background: #FFB561;
 }
