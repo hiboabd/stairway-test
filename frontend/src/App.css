@@ -2,24 +2,11 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -28,11 +15,38 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Banner styling */
+
+.Banner {
+  position: static;
+  width: 678px;
+  height: 140px;
+  left: 0px;
+  top: 0px;
+  background-color: #FFF1C7;
+  flex: none;
+  order: 0;
+  align-self: center;
+  margin: 0px 0px;
+}
+
+.Banner h3 {
+  /* Compete with your friends this week! */
+
+  position: absolute;
+  height: 30px;
+  left: 24px;
+  right: 109px;
+  top: 28px;
+
+  /* Heading 3 (Bold) */
+  font-family: Haboro Soft;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 30px;
+  /* identical to box height */
+
+  /* Peach / 900 */
+  color: #E47A00;
 }
