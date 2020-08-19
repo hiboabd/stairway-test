@@ -11,6 +11,8 @@ function Leaderboard() {
   useEffect(() => {
     async function fetchData(){
       const response = await axios.get(`https://www.stairwaylearning.com/api/v1/stub/leaderboard`)
+      let data = response.data.profiles
+      data.sort(function(a, b){return b.weeklyXP - a.weeklyXP})
       setUsers(response.data.profiles)
     }
     fetchData();
