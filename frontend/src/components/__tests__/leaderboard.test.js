@@ -7,22 +7,25 @@ jest.mock('axios')
 
 beforeEach(() => {
   axios.get = jest.fn(() => Promise.resolve({
-    profiles: [
-      {
-        username: 'user1',
-        weeklyXP: 1000,
-        isCurrentUser: false,
-      },
-      {
-        username: 'user2',
-        weeklyXP: 500,
-        isCurrentUser: true,
-      }
-    ]
+    data: {
+      profiles: [
+        {
+          username: 'user1',
+          weeklyXP: 1000,
+          isCurrentUser: false,
+        },
+        {
+          username: 'user2',
+          weeklyXP: 500,
+          isCurrentUser: true,
+        }
+      ]
+    }
   }))
 })
 
-test('renders leaderboard page with title', async () => {
+
+it('renders leaderboard page with banner', async () => {
   await act( async () => {
     const { getByText } = render(<Leaderboard />);
     const textElement = getByText(/Compete with your friends this week!/i);
@@ -31,12 +34,10 @@ test('renders leaderboard page with title', async () => {
 
 });
 
-test('returns home page with two image posts', async () => {
+it('returns leaderboard with two users', async () => {
   await act( async () => {
-    const {getByText } = render(<Leaderboard />);
-    const user1TextElement = await getByText(/user1/)
-    const user2TextElement = await getByText(/user2/)
-    expect(user1TextElement).toBeInTheDocument();
-    expect(user2TextElement).toBeInTheDocument();
+    const {findAllByTestId } = render(<Leaderboard/>);
+    const items = await findAllByTestId(/users/)
+    expect(items).toHaveLength(2)
   });
 });
