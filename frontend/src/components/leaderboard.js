@@ -32,10 +32,10 @@ function Leaderboard() {
     <div className="leaderboard">
       <Banner />
 
-      {isError && <h3>Something went wrong... </h3>}
+      {isError && <div className="error-msg"> <h3> Something went wrong... </h3> </div>}
 
       { isLoading ? (
-        <h3>Loading...</h3>
+        <div className="loading-msg"> <h3> Loading... </h3> </div>
       ) : (
         <>
         {users.map((user, index) => (
