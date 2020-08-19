@@ -5,15 +5,25 @@ import Row from './row';
 const axios = require('axios');
 
 function Leaderboard() {
+  const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(false)
+  const [isError, setIsError] = useState(false)
 
-  let [users, setUsers] = useState([]);
 
   useEffect(() => {
     async function fetchData(){
-      const response = await axios.get(`https://www.stairwaylearning.com/api/v1/stub/leaderboard`)
-      let data = response.data.profiles
-      data.sort(function(a, b){return b.weeklyXP - a.weeklyXP})
-      setUsers(response.data.profiles)
+      setIsError(false);
+      setIsLoading(true);
+
+      try {
+        const response = await axios.get(`https://www.stairwaylearning.com/api/v1/stub/leaderboard`)
+        let data = response.data.profiles
+        data.sort(function(user1, user2){return user2.weeklyXP - user1.weeklyXP})
+        setUsers(data)
+      } catch (error) {
+        setIsError(true)
+      }
+      setIsLoading(false)
     }
     fetchData();
   }, [])
@@ -21,13 +31,22 @@ function Leaderboard() {
   return (
     <div className="leaderboard">
       <Banner />
-      {users.map((user, index) => (
-        <Row
-          key={index}
-          index={index}
-          user={user}
-          />
-      ))}
+
+      {isError && <h3>Something went wrong... </h3>}
+
+      { isLoading ? (
+        <h3>Loading...</h3>
+      ) : (
+        <>
+        {users.map((user, index) => (
+          <Row
+            key={index}
+            index={index}
+            user={user}
+            />
+        ))}
+        </>
+      )}
     </div>
   );
 }
