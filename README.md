@@ -1,9 +1,9 @@
-# Leaderboard Tech Test
+# Stairway Tech Test
 This project is a tech test submitted for the Junior Front End Engineer position at Stairway.
 
 ## To use locally
 
-In your terminal, navigate to the project directory `leaderboard-test/frontend`, then type the command:
+In your terminal, navigate to the project directory `stairway-test/frontend`, then type the command:
 
 ### `npm install`
 
