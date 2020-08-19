@@ -3,7 +3,13 @@ This project is a tech test submitted for the Junior Front End Engineer position
 
 ## To use locally
 
-In your terminal, navigate to the project directory `leaderboard-test`, then type the command:
+In your terminal, navigate to the project directory `leaderboard-test/frontend`, then type the command:
+
+### `npm install`
+
+This will install the required node modules.
+
+If you do not have node package manager (NPM), follow the instructions outlined [here](https://www.npmjs.com/get-npm).
 
 ### `npm start`
 
