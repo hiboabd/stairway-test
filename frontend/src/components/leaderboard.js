@@ -6,32 +6,28 @@ const axios = require('axios');
 
 function Leaderboard() {
 
-  let [row, setRow] = useState([]);
+  let [users, setUsers] = useState([]);
 
+  useEffect(() => {
+    async function fetchData(){
+      const response = await axios.get(`https://www.stairwaylearning.com/api/v1/stub/leaderboard`)
+      setUsers(response.data.profiles)
+    }
+    fetchData();
+  }, [])
 
   return (
     <div className="leaderboard">
       <Banner />
-      <Row />
-      <Row />
-      <Row />
-      <Row />
+      {users.map((user, index) => (
+        <Row
+          key={index}
+          index={index}
+          user={user}
+          />
+      ))}
     </div>
   );
 }
 
 export default Leaderboard;
-
-
-// useEffect(() => {
-//   async function fetchData(){
-//     const response = await axios.get(`https://www.stairwaylearning.com/api/v1/stub/leaderboard`)
-//     console.log(response)
-//     setRow(response.profiles)
-//   }
-//   fetchData();
-// }, [])
-
-// {row.map((row, index) => (
-//   <Row key={index} index={index} row={row} />
-// ))}
