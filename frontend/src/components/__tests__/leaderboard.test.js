@@ -5,7 +5,7 @@ const axios = require('axios')
 
 jest.mock('axios')
 
-beforeEach(() => {
+beforeAll( async () => {
   axios.get = jest.fn(() => Promise.resolve({
     data: {
       profiles: [
@@ -31,44 +31,35 @@ it('renders leaderboard page with banner', async () => {
     const textElement = getByText(/Compete with your friends this week!/i);
     expect(textElement).toBeInTheDocument();
   });
-
 });
 
-it('returns leaderboard with two users', async () => {
+it('returns two users in order of XP', async () => {
   await act( async () => {
-    const {findAllByTestId } = render(<Leaderboard/>);
-    const items = await findAllByTestId(/users/)
-    expect(items).toHaveLength(2)
-  });
-});
+    const correctOrder = ["1000", "500"]
+    const incorrectOrder = ["500", "1000"]
 
-it('returns users in order of XP', async () => {
-  await act( async () => {
-    const names = ["user2", "user1"]
     const { findAllByTestId } = render(<Leaderboard />)
     const renderedNames = await findAllByTestId(/users/)
+    expect(renderedNames).toHaveLength(2)
     renderedNames.forEach((nameNode, index) => {
-      expect(nameNode.textContent).toMatch(names[index])
+      expect(nameNode.textContent).toMatch(correctOrder[index])
+      expect(nameNode.textContent).not.toMatch(incorrectOrder[index])
     })
   });
 });
 
-it('returns logged in user colored in grey', async () => {
+it('returns different color background for a logged in user', async () => {
   await act( async () => {
     const { findByText } = render(<Leaderboard />)
-    const renderedUser = await findByText(/user2/)
-    expect(renderedUser).toBeInTheDocument();
-    expect(renderedUser.parentElement).toHaveStyle(`background: #F2F5FC`)
-    expect(renderedUser.parentElement).not.toHaveStyle(`background: #FFFFFF`)
-  });
-});
+    const renderedLoggedInUser = await findByText(/user2/)
+    const renderedOtherUser = await findByText(/user1/)
 
-it('returns non logged in user colored in white', async () => {
-  await act( async () => {
-    const { findByText } = render(<Leaderboard />)
-    const renderedUser = await findByText(/user1/)
-    expect(renderedUser).toBeInTheDocument();
-    expect(renderedUser.parentElement).toHaveStyle(`background: #FFFFFF`)
-    expect(renderedUser.parentElement).not.toHaveStyle(`background: #F2F5FC`)
+    expect(renderedLoggedInUser).toBeInTheDocument();
+    expect(renderedLoggedInUser.parentElement).toHaveStyle(`background: #F2F5FC`)
+    expect(renderedLoggedInUser.parentElement).not.toHaveStyle(`background: #FFFFFF`)
+
+    expect(renderedOtherUser).toBeInTheDocument();
+    expect(renderedOtherUser.parentElement).toHaveStyle(`background: #FFFFFF`)
+    expect(renderedOtherUser.parentElement).not.toHaveStyle(`background: #F2F5FC`)
   });
 });
