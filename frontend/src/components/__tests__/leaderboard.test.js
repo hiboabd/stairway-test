@@ -11,12 +11,12 @@ beforeEach(() => {
       profiles: [
         {
           username: 'user1',
-          weeklyXP: 1000,
+          weeklyXP: 500,
           isCurrentUser: false,
         },
         {
           username: 'user2',
-          weeklyXP: 500,
+          weeklyXP: 1000,
           isCurrentUser: true,
         }
       ]
@@ -39,5 +39,16 @@ it('returns leaderboard with two users', async () => {
     const {findAllByTestId } = render(<Leaderboard/>);
     const items = await findAllByTestId(/users/)
     expect(items).toHaveLength(2)
+  });
+});
+
+it('returns users in order of XP', async () => {
+  await act( async () => {
+    const names = ["user2", "user1"]
+    const { findAllByTestId } = render(<Leaderboard />)
+    const renderedNames = await findAllByTestId(/users/)
+    renderedNames.forEach((nameNode, index) => {
+      expect(nameNode.textContent).toMatch(names[index])
+    })
   });
 });
