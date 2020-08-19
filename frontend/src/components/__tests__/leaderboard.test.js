@@ -28,8 +28,8 @@ beforeAll( async () => {
 it('renders leaderboard page with banner', async () => {
   await act( async () => {
     const { getByText } = render(<Leaderboard />);
-    const textElement = getByText(/Compete with your friends this week!/i);
-    expect(textElement).toBeInTheDocument();
+    const titleText = getByText(/Compete with your friends this week!/i);
+    expect(titleText).toBeInTheDocument();
   });
 });
 
