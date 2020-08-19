@@ -1,8 +1,25 @@
 # Leaderboard Tech Test
-This project is a tech test submitted for the junior front end engineer position at Stairway Learning.
+This project is a tech test submitted for the Junior Front End Engineer position at Stairway.
 
+## To use locally
+
+In your terminal, navigate to the project directory `leaderboard-test`, then type the command:
+
+### `npm start`
+
+This runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+To run tests, type the command:
+
+### `npm test`
+
+This launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ## Task description
+
+Below is a summarised description of the task as outlined by Stairway.
 
 This project is intended to simulate a reduced version of what you might expect to be implementing within the Front-End Engineering role. In this project, you'll be creating a simplified Leaderboard using React. Below you'll find a link to the Design, along with the Acceptance Criteria and API schema
 
@@ -16,44 +33,6 @@ This project is intended to simulate a reduced version of what you might expect 
 
 The API endpoint can be accessed at https://www.stairwaylearning.com/api/v1/stub/leaderboard
 
-The API schema is in the following format
-
-```json
-{
-	'profiles': [
-		{
-			'username': string,
-			'weeklyXP': number,
-			'isCurrentUser': boolean,
-		}
-	]
-}
-```
-
-**API Schema as Typescript interfaces**
-
-```json
-interface LeaderboardResponse {
-    profiles: Profile[];
-}
-
-interface Profile {
-    username: string;
-    weeklyXP: number;
-		isCurrentUser: boolean;
-}
-```
-
-All fields are required and can be assumed to be present
-
-### Designs
-
-To view the CSS for the components, clicked the title of the file below
-
-[https://www.figma.com/embed?embed_host=notion&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F9qSLmzKSmHaTbs3PAOubUF%2FDev-Test-Leaderboard%3Fnode-id%3D0%253A1](https://www.figma.com/embed?embed_host=notion&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F9qSLmzKSmHaTbs3PAOubUF%2FDev-Test-Leaderboard%3Fnode-id%3D0%253A1)
-
 ### Instructions
 
 We'd like you to implement this example using React. Please start the project by creating a 'Create React App' project, and implement the above leaderboard using the API in the most efficient way you can determine.
-
-Upon submission, please send us the code via email (charles@stairwaylearning.com) - bonus points will be given if you're able to ask any questions relating to edge cases, which you might focus on further in a production environment.
