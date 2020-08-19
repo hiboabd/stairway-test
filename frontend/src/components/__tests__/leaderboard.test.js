@@ -52,3 +52,23 @@ it('returns users in order of XP', async () => {
     })
   });
 });
+
+it('returns logged in user colored in grey', async () => {
+  await act( async () => {
+    const { findByText } = render(<Leaderboard />)
+    const renderedUser = await findByText(/user2/)
+    expect(renderedUser).toBeInTheDocument();
+    expect(renderedUser.parentElement).toHaveStyle(`background: #F2F5FC`)
+    expect(renderedUser.parentElement).not.toHaveStyle(`background: #FFFFFF`)
+  });
+});
+
+it('returns non logged in user colored in white', async () => {
+  await act( async () => {
+    const { findByText } = render(<Leaderboard />)
+    const renderedUser = await findByText(/user1/)
+    expect(renderedUser).toBeInTheDocument();
+    expect(renderedUser.parentElement).toHaveStyle(`background: #FFFFFF`)
+    expect(renderedUser.parentElement).not.toHaveStyle(`background: #F2F5FC`)
+  });
+});
