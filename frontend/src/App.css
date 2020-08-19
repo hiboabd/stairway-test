@@ -28,6 +28,8 @@
   order: 0;
   justify-self: center;
   margin: 0px 0px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 .banner h3 {
