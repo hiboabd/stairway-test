@@ -42,7 +42,7 @@
 .reset {
   background-color: #FFB561;
   position: relative;
-  width: 200px;
+  width: 180px;
   height: 40px;
   bottom: 30%;
   display: flex;
@@ -79,11 +79,14 @@
   font-size: 16px;
   color: #FFFFFF;
   margin-right: 5px;
+  font-weight: bold;
 }
 
 .reset-time {
   font-size: 18px;
   color: #E47A00;
+  font-weight: 500;
+  line-height: 2em;
 }
 
 /* Leaderboard styling */
